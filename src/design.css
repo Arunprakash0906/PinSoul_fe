@@ -1,0 +1,146 @@
+@import "tailwindcss";
+
+:root {
+  --ink: #f4f1e9;
+  --muted: #b5b2ac;
+  --paper: #121316;
+  --surface: #1c1e22;
+  --line: #35373b;
+  --line-hover: #4a4c50;
+  --sky-blue: #e89163;
+  --accent: #e89163;
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.app-shell {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.app-main {
+  min-width: 0;
+  width: 100%;
+}
+
+button,
+a,
+select,
+input {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  min-height: 44px;
+  font: inherit;
+}
+
+button:focus-visible,
+a:focus-visible,
+select:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Shared controls keep touch targets comfortable without forcing oversized buttons. */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 32px;
+  min-height: 52px;
+  font-size: 15px;
+  font-weight: 700;
+  border-radius: var(--radius-control);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  box-sizing: border-box;
+  letter-spacing: 0.01em;
+}
+
+.btn-primary,
+.btn-signup {
+  background: #e89163 !important;
+  color: #201713 !important;
+  border: 1px solid #e89163 !important;
+  box-shadow: 0 8px 24px rgba(166, 91, 59, 0.24);
+}
+
+.btn-primary:hover:not(:disabled),
+.btn-signup:hover:not(:disabled) {
+  background: #f0a27c !important;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(166, 91, 59, 0.32);
+}
+
+.btn-secondary,
+.btn-signin,
+.nav-admin-button {
+  background: rgba(244, 241, 233, 0.06) !important;
+  color: #f4f1e9 !important;
+  border: 1px solid rgba(244, 241, 233, 0.2) !important;
+}
+
+.btn-secondary:hover:not(:disabled),
+.btn-signin:hover:not(:disabled),
+.nav-admin-button:hover {
+  background: rgba(232, 145, 99, 0.18) !important;
+  border-color: rgba(232, 145, 99, 0.65) !important;
+  transform: translateY(-3px);
+}
+
+button,
+input,
+select,
+textarea {
+  max-width: 100%;
+}
+
+input,
+select,
+textarea {
+  border-radius: var(--radius-control);
+}
+
+/* Warm accent corner glow effects */
+.sky-blue-corner-glow {
+  position: relative;
+}
+
+.sky-blue-corner-glow::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle, rgba(232, 145, 99, 0.22) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  animation: skyBlueBlinkGlow 3s infinite ease-in-out;
+}
+
+.sky-blue-corner-glow::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle, rgba(232, 145, 99, 0.17) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  animation: skyBlueBlinkGlow 3.5s infinite ease-in-out reverse;
+}
